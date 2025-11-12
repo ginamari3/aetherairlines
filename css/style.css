@@ -546,7 +546,7 @@ body {
 
 /* MEMBERSHIPS */
 .memberships {
-    padding: 48px var(--padding);
+    padding: 0 var(--padding) !important;
 }
 
 .membership-cards {
