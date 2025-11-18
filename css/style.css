@@ -70,6 +70,7 @@ h2 {
     font-weight: 700;
     font-size: clamp(1.5rem, 3vw, 36px);
     line-height: 1.2;
+    text-wrap: pretty;
 }
 
 p {
@@ -620,13 +621,27 @@ body {
     position: relative;
     background: #c7cce1;
     background-size: cover;
-    border-radius: 30px;
-    padding: 60px 40px;
+    border-radius: 38px;
+    /* was 30px */
+    padding: 75px 50px;
+    /* was 60px 40px */
     margin: 60px 0;
     /* max-width: var(--container); */
     overflow: hidden;
     box-shadow: var(--card-shadow);
 }
+
+
+
+.destinations .view-more {
+    margin-top: 14px;
+    /* keep if you like this spacing */
+    display: inline-block;
+    /* make sure transform works cleanly */
+    transform: translateY(25%);
+}
+
+
 
 .dest-header {
     text-align: left !important;
@@ -849,10 +864,14 @@ body {
 .flight-detail-grid {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
-    gap: clamp(24px, 4vw, 48px);
+    column-gap: clamp(12px, 2vw, 24px);
+    /* space between intro + features */
+    row-gap: clamp(24px, 4vw, 48px);
+    /* vertical spacing on mobile */
     align-items: start;
     padding-inline: var(--padding);
 }
+
 
 @media (max-width: 900px) {
     .flight-detail-grid {
@@ -883,8 +902,8 @@ body {
     grid-template-columns: 84px 1fr;
     gap: 16px;
     align-items: center;
-    background: #7e8097;
-    color: #fff;
+    background: #ffffff74;
+    color: #000000;
     border-radius: 22px;
     box-shadow: 0 10px 18px rgba(11, 35, 64, .08);
     padding: 18px;
@@ -896,7 +915,7 @@ body {
     height: 84px;
     border-radius: 18px;
     overflow: hidden;
-    background-color: #e9e9ef;
+    background-color: #ececf5a1;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .06);
 }
 
@@ -918,7 +937,7 @@ body {
 
 .fd-text p {
     margin: 0;
-    color: rgba(255, 255, 255, .92);
+    color: rgb(0, 0, 0);
 }
 
 /* Idle-until-scroll */
@@ -1083,9 +1102,9 @@ body {
 /* SEATTLE SKYLINE positioning & layering */
 .seattle-skyline {
     position: absolute;
-    right: 290px;
+    right: 270px;
     /* nudge beyond the container to the right */
-    bottom: -35%;
+    bottom: -46%;
     /* anchor vertically around mid of flight-detail */
     transform: translateY(-30%) translateX(40px);
     /* start slightly off-canvas for anim */
@@ -1145,7 +1164,8 @@ body {
 }
 
 .quote {
-    padding: clamp(28px, 4vw, 56px) 0;
+    margin-top: calc(clamp(28px, 4vw, 56px) * 1.25);
+    padding: calc(clamp(28px, 4vw, 56px) * 1.25) 0;
     position: relative;
     z-index: 3;
     /* higher than the skyline */
@@ -1179,14 +1199,15 @@ body {
 .quote .quote-card::before {
     content: "“";
     top: clamp(8px, 1.6vw, 16px);
-    left: clamp(12px, 2vw, 24px);
+    left: calc(clamp(12px, 2vw, 24px) * 9);
 }
 
 .quote .quote-card::after {
     content: "”";
     bottom: clamp(8px, 1.6vw, 16px);
-    right: clamp(12px, 2vw, 24px);
+    right: calc(clamp(12px, 2vw, 24px) * 9);
 }
+
 
 .q-text {
     position: relative;
@@ -1201,7 +1222,9 @@ body {
 
 .q-cite {
     position: relative;
+    left: -20%;
     z-index: 1;
+    transform: translateY(30%);
     display: block;
     margin-top: clamp(12px, 1.8vw, 20px);
     padding-right: calc(var(--quote-mark-size)*0.6);
@@ -1230,10 +1253,14 @@ body {
 .bm-grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    gap: clamp(24px, 4vw, 56px);
+    column-gap: clamp(12px, 2vw, 28px);
+    /* space between left + right */
+    row-gap: clamp(24px, 4vw, 40px);
+    /* vertical spacing when stacked */
     align-items: start;
     padding: 0 var(--padding);
 }
+
 
 .bm-left {
     display: grid;
@@ -1245,8 +1272,8 @@ body {
     grid-template-columns: 84px 1fr;
     align-items: center;
     gap: 16px;
-    background: #7e8097;
-    color: #fff;
+    background: #ffffff74;
+    color: #000000;
     border-radius: 22px;
     padding: 18px;
     box-shadow: 0 10px 18px rgba(11, 35, 64, .08);
@@ -1258,7 +1285,7 @@ body {
     height: 84px;
     border-radius: 18px;
     overflow: hidden;
-    background-color: #e9e9ef;
+    background-color: #ececf5a1;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .06);
 }
 
@@ -1281,7 +1308,7 @@ body {
 
 .bm-text p {
     margin: 0;
-    color: rgba(255, 255, 255, .92);
+    color: rgb(0, 0, 0);
     font-size: 1rem;
 }
 
@@ -1305,6 +1332,7 @@ body {
 }
 
 .bm-cta {
+    margin-top: 25px;
     border-radius: 999px;
     padding: 12px 22px;
     box-shadow: 0 8px 18px rgba(36, 60, 122, .18), 0 6px 0 rgba(0, 0, 0, .10);
@@ -1660,11 +1688,19 @@ body {
 }
 
 /* ==== CLOUDS — SCROLL-REVEAL ==== */
+
+
+
 #memberships,
 #destinations {
     position: relative !important;
     overflow: visible !important;
 }
+
+#memberships .cta {
+    transform: translateY(25%);
+}
+
 
 .cloud-divider {
     position: absolute !important;
@@ -1723,6 +1759,38 @@ body {
     }
 }
 
+@media (max-width: 760px) {
+
+    #memberships .cloud-divider,
+    #destinations .cloud-divider {
+        z-index: 0 !important;
+        /* behind content */
+        transform: translateX(40%) scale(0.6) !important;
+        /*  ^ pushes cloud toward the right side without touching the edge */
+
+        left: 50% !important;
+        /* anchor cloud in the middle */
+        right: auto !important;
+        /* prevents sticking to browser wall */
+
+        bottom: -50px !important;
+        /* adjust vertical position */
+        opacity: 0.4 !important;
+        /* softer background */
+    }
+
+    /* ensure section content stays above clouds */
+    #memberships>*:not(.cloud-divider),
+    #destinations>*:not(.cloud-divider) {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+
+
+
+
 /* === FORCE H1 + H3 TO MATCH (place last before sections) === */
 h1,
 h3,
@@ -1750,13 +1818,13 @@ h3 {
 
 /* ===== Journeys ===== */
 .journeys {
-    padding: clamp(36px, 5vw, 64px) 0;
+    padding: calc(clamp(28px, 4vw, 56px) * 1.25) 0;
 }
 
 .journeys-wrap {
     background: #cbd0e3;
     border-radius: 30px;
-    padding: clamp(24px, 4vw, 64px) var(--padding);
+    padding: clamp(24px, 4vw, 64px) calc(var(--padding) * 1.25);
     box-shadow: var(--card-shadow);
     position: relative;
 }
@@ -2323,9 +2391,9 @@ body {
 
 /* Reduce vertical gap between Destinations → Flight Detail */
 .destinations {
-    margin-bottom: 20px !important;
+    margin-bottom: 80px !important;
     /* was 33px */
-    padding-bottom: 20px !important;
+    padding-bottom: 80px !important;
     /* was 33px */
 }
 
