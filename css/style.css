@@ -565,6 +565,12 @@ body {
     }
 }
 
+@media (max-width: 760px) {
+    .membership-cards {
+        flex-direction: column;
+    }
+}
+
 /* Global base card rule — width animation only */
 .m-card {
     flex: 1 0 0;
@@ -872,6 +878,12 @@ body {
     padding-inline: var(--padding);
 }
 
+@media (max-width: 768px) {
+    .flight-detail-features {
+        margin-top: 250px;
+    }
+}
+
 
 @media (max-width: 900px) {
     .flight-detail-grid {
@@ -1176,6 +1188,7 @@ body {
     background: var(--quote-bg);
     color: var(--quote-text);
     border-radius: var(--quote-radius);
+    padding-top: calc(3 * var(--quote-pad));
     padding: var(--quote-pad) var(--padding);
     padding-left: calc(20% + var(--quote-mark-size)*0.5);
     padding-right: calc(var(--quote-mark-size)*0.5);
@@ -1198,7 +1211,7 @@ body {
 
 .quote .quote-card::before {
     content: "“";
-    top: clamp(8px, 1.6vw, 16px);
+    top: var(--quote-pad);
     left: calc(clamp(12px, 2vw, 24px) * 9);
 }
 
@@ -1843,6 +1856,12 @@ h3 {
     grid-template-columns: 1.1fr 1fr;
     gap: clamp(18px, 3vw, 40px);
     align-items: start;
+}
+
+@media (max-width: 768px) {
+    .t-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .t-card {
